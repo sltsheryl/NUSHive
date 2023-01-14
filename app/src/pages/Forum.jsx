@@ -3,13 +3,20 @@ import ForumBody from "../components/forum/ForumBody";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from "../components/SideBar";
+import user from "../images/user.png"
 
 const Forum = () => {
     const postlist = posts;
+    const profileStyle = {
+        float: "right",
+        padding:"auto"
+    }
   return (
       <div>
-          <div className='flex flex-row items-center'>
-          <h1 className="mx-5 my-4">Welcome to the Forum</h1>
+          <div className='flex mx-5 my-4'>
+              <h1 className="d-inline">Welcome to the Forum</h1>
+    
+              <img style={profileStyle}  height="50px" src={user}></img>
               </div>
         <SideBar />
 
