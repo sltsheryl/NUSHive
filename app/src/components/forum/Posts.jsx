@@ -8,17 +8,20 @@ const posts = [
     description: "This is a post description.",
     date: "2020-01-01",
     tags: "algo data-structures", // tags are separated by spaces
-    replies: [{
-      id: 5,
-      text: "This is a reply description.",
-      date: "2020-01-01",
-      votes: 10,
-    }, {
-       id: 10,
-      text: "This is a reply description.",
-      date: "2020-01-01",
-      votes: 2,
-    }]
+    replies: [
+      {
+        id: 5,
+        text: "This is a reply description.",
+        date: "2020-01-01",
+        votes: 10,
+      },
+      {
+        id: 10,
+        text: "This is a reply description.",
+        date: "2020-01-01",
+        votes: 2,
+      },
+    ],
   },
   {
     id: 2,
@@ -27,12 +30,14 @@ const posts = [
     description: "Hello.",
     date: "2020-03-01",
     tags: "networking", // tags are separated by spaces
-    replies: [{
-      id: 10,
-      text: "This is a reply description.",
-      date: "2020-01-01",
-      votes: 2,
-    }]
+    replies: [
+      {
+        id: 10,
+        text: "This is a reply description.",
+        date: "2020-01-01",
+        votes: 2,
+      },
+    ],
   },
   {
     id: 3,
@@ -41,12 +46,14 @@ const posts = [
     description: "This is a post ~~.",
     date: "2012-01-02",
     tags: "bus", // tags are separated by spaces
-    replies: [{
-      id: 21,
-      text: "This is a reply description.",
-      date: "2020-01-01",
-      votes: -1,
-    }]
+    replies: [
+      {
+        id: 21,
+        text: "This is a reply description.",
+        date: "2020-01-01",
+        votes: -1,
+      },
+    ],
   },
 ];
 

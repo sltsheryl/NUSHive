@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Reply from '../components/forum/Reply';
+import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
 import { useState } from 'react';
 
@@ -43,9 +44,19 @@ const repliesToDisplay = [];
               
             {repliesToDisplay}
 
-                      
-          </Card>
-      
+        <div class="form-group">
+          <label> Reply</label>
+
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+          <Button className="mt-2" variant="success">
+            Submit{" "}
+          </Button>
+        </div>
+      </Card>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-var { db } = require('./database'); 
+var { db } = require("./database");
 
 db.serialize(() => {
   db.run(`CREATE TABLE User (
@@ -6,7 +6,7 @@ db.serialize(() => {
     username TEXT NOT NULL,
     email TEXT NOT NULL, 
     password_hash TEXT NOT NULL
-  )`)
+  )`);
 
   db.run(`CREATE TABLE Post (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -17,7 +17,7 @@ db.serialize(() => {
     score INTEGER DEFAULT 0,
     date DATE,
 
-    FOREIGN KEY (user_id) REFERENCES User(id))`)
+    FOREIGN KEY (user_id) REFERENCES User(id))`);
 
   db.run(`CREATE TABLE Reply (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,7 +28,7 @@ db.serialize(() => {
     date DATE,
 
     FOREIGN KEY (user_id) REFERENCES User(id),
-    FOREIGN KEY (post_id) REFERENCES Post(id))`)
+    FOREIGN KEY (post_id) REFERENCES Post(id))`);
 
   db.run(`CREATE TABLE PostVote (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -38,7 +38,7 @@ db.serialize(() => {
 
     FOREIGN KEY (user_id) REFERENCES User(id), 
     FOREIGN KEY (post_id) REFERENCES Post(id)
-  )`)
+  )`);
 
   db.run(`CREATE TABLE ReplyVote (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,7 +48,7 @@ db.serialize(() => {
 
     FOREIGN KEY (user_id) REFERENCES User(id), 
     FOREIGN KEY (reply_id) REFERENCES Reply(id)
-  )`)
+  )`);
 
   db.run(`CREATE TABLE ConsultRequest (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -59,7 +59,7 @@ db.serialize(() => {
     tags TEXT,
 
     FOREIGN KEY (consultor_id) REFERENCES User(id)
-  )`)
+  )`);
 
   db.run(`CREATE TABLE ConsultAccept (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -70,11 +70,11 @@ db.serialize(() => {
 
     FOREIGN KEY (consultrequest_id) REFERENCES ConsultRequest(id),
     FOREIGN KEY (consultant_id) REFERENCES User(id)
-  )`)
+  )`);
 
   db.run(`CREATE TABLE Module (
     code STRING PRIMARY KEY
-  )`)
+  )`);
 
   db.run(`CREATE TABLE Completion(
     user_id INTEGER,
@@ -83,9 +83,8 @@ db.serialize(() => {
 
     FOREIGN KEY (user_id) REFERENCES User(id),
     FOREIGN KEY (module_code) REFERENCES Module(code)
-  )`)
-
-})
+  )`);
+});
 
 // db.serialize(() => {
 
@@ -101,4 +100,4 @@ db.serialize(() => {
 //   insert_post.finalize()
 // })
 
-db.close()
+db.close();
