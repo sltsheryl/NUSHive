@@ -1,7 +1,5 @@
 import posts from "../components/forum/Posts";
 import ForumBody from "../components/forum/ForumBody";
-import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from "../components/SideBar";
 import user from "../images/user.png"
 import React, { Component } from 'react';
@@ -28,7 +26,8 @@ class Forum extends Component {
               </div>
         <SideBar />
 
-      <ForumBody postlist={postlist} />
+          <ForumBody postlist={postlist} />
+      
     </div>
     )
   }
