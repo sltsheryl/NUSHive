@@ -6,32 +6,30 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createRouter } from "@remix-run/router";
 import Forum from "./pages/Forum";
 import Login from "./pages/Login";
-import Register from "./pages/Register"
+import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Forum />
-  }, 
+    path: "/",
+    element: <Forum />,
+  },
   {
-    path: '/forum',
-    element: <Forum />
-  }, 
+    path: "/forum",
+    element: <Forum />,
+  },
   {
-    path: '/login',
-    element: <Login />
-  }, 
+    path: "/login",
+    element: <Login />,
+  },
   {
-    path: '/register',
-    element: <Register />
-  }, 
-])
+    path: "/register",
+    element: <Register />,
+  },
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(
-  <RouterProvider router={router} />
-);
+root.render(<RouterProvider router={router} />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
