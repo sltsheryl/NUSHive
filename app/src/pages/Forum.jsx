@@ -1,6 +1,5 @@
 import posts from "../components/forum/Posts";
 import ForumBody from "../components/forum/ForumBody";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from "../components/SideBar";
 import user from "../images/user.png"
 

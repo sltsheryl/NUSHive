@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  MDBBtn,
   MDBModal,
   MDBModalDialog,
   MDBModalContent,
@@ -8,6 +7,8 @@ import {
   MDBModalTitle,
   MDBModalFooter,
 } from 'mdb-react-ui-kit';
+
+import Button from 'react-bootstrap/Button';
 
 const AddPost = ({ name }) => {
   const inputStyle = {
@@ -19,7 +20,7 @@ const AddPost = ({ name }) => {
 
   return (
     <>
-      <MDBBtn className="me-4" onClick={toggleShow}>{name}</MDBBtn>
+      <Button className="me-4" onClick={toggleShow}>{name}</Button>
       <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1'>
         <MDBModalDialog>
           <MDBModalContent>
@@ -45,10 +46,10 @@ const AddPost = ({ name }) => {
              
 
             <MDBModalFooter>
-              <MDBBtn color='secondary' onClick={toggleShow}>
+              <Button onClick={toggleShow}>
                 Close
-              </MDBBtn>
-              <MDBBtn>Submit</MDBBtn>
+              </Button>
+              <Button>Submit</Button>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>
