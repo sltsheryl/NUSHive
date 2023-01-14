@@ -4,11 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import AddPost from './forum/AddPost/AddPost';
 
-function SideBar() {
+const SideBar = () => {
   return (
-    <Navbar className="mx-5" bg="white" expand="lg">
-      <Container fluid>
+    <Navbar className="mx-3" bg="white" expand="lg">
+          <Container fluid>
+              <AddPost name={"Post Question"} />
         <Navbar.Brand href="#">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -27,9 +29,8 @@ function SideBar() {
               <NavDropdown.Divider />
               
             </NavDropdown>
-            <Nav.Link href="#">
-              Post Question
-            </Nav.Link>
+           
+                      
           </Nav>
           <Form className="d-flex">
             <Form.Control
