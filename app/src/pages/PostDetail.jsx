@@ -19,11 +19,7 @@ const PostDetail = ({ post }) => {
         <div class="form-group">
           <label> Reply</label>
 
-          <textarea
-            class="form-control"
-            id="exampleFormControlTextarea1"
-            rows="3"
-          ></textarea>
+          <textarea class="form-control" rows="3"></textarea>
           <Button className="mt-2" variant="success">
             Submit{" "}
           </Button>

@@ -10,7 +10,7 @@ import {
 
 import Button from "react-bootstrap/Button";
 
-const AddPost = ({ name }) => {
+const AddPost = () => {
   const inputStyle = {
     width: "400px",
   };
@@ -21,7 +21,7 @@ const AddPost = ({ name }) => {
   return (
     <>
       <Button className="me-4" onClick={toggleShow}>
-        {name}
+        Add Post
       </Button>
       <MDBModal show={basicModal} setShow={setBasicModal} tabIndex="-1">
         <MDBModalDialog>

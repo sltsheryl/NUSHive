@@ -99,7 +99,7 @@ class Login extends Component {
           <Button variant="primary" type="submit">
             Login
           </Button>
-          or{" "}
+          <p className="d-inline"> or </p>
           <Link className="link" to="/register">
             Sign up now!
           </Link>
