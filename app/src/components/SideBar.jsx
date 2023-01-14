@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import AddPost from './forum/AddPost/AddPost';
 
-function SideBar() {
+const SideBar = () => {
   return (
     <Navbar className="mx-3" bg="white" expand="lg">
           <Container fluid>

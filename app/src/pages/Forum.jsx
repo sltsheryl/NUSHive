@@ -1,10 +1,8 @@
 import posts from "../components/forum/Posts";
 import ForumBody from "../components/forum/ForumBody";
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from "../components/SideBar";
 import user from "../images/user.png"
-import AddPost from "../components/forum/AddPost/AddPost";
 
 const Forum = () => {
     const postlist = posts;

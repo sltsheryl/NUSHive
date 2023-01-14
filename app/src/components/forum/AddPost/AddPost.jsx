@@ -6,7 +6,6 @@ import {
   MDBModalContent,
   MDBModalHeader,
   MDBModalTitle,
-  MDBModalBody,
   MDBModalFooter,
 } from 'mdb-react-ui-kit';
 
