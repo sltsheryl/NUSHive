@@ -2,7 +2,6 @@ import Card from 'react-bootstrap/Card';
 import replies from "../../images/replies.png";
 import Button from 'react-bootstrap/Button';
 
-
 const Post = ({ post }) => {
     const titleStyle = {
         color: "#292929",
@@ -22,17 +21,17 @@ const Post = ({ post }) => {
   return (
     <div>
           <Card className="mx-4 " body>
-              <a href="/" style={titleStyle}>{post.title}</a>
-      
-              {/* number of replies */}
+              <a href=" " style={titleStyle}>{post.title}</a>
               <div>
-
-                  <p className="d-inline ">{post.date}</p>
+          <p className="my-1 d-inline" >By {post.id}</p>
+            <div className="d-inline mx-4 replies">
+               <img alt="replies" height="20px" src={replies} />
+              <p className="ms-1 d-inline">{post.replies.length}</p>
+          </div>
+          
+                  <p className="my-1  ">{post.date}</p>
               </div>
-              <div className="replies">
-               <img height="20px" src={replies} />
-              <p className="ms-1 d-inline">{post.replies.split(" ").length}</p>
-            </div>
+            
          
               <div className="row partners-images">
                   <div >{ tagsDisplay }</div>
@@ -40,7 +39,7 @@ const Post = ({ post }) => {
            
              
              
-          </Card>
+      </Card>
       
     </div>
   );
