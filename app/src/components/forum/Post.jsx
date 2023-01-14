@@ -14,7 +14,7 @@ const Post = ({ post }) => {
     const tags = post.tags.split(" ")
     for (var i=0; i < tags.length; i++) {
         tagsDisplay.push(
-                <Button className="text-xs m-1 rounded" variant="outline-primary">{tags[i]}</Button>
+                <Button className="text-xs me-1 mt-1 rounded" variant="outline-primary">{tags[i]}</Button>
         );
     }
 
@@ -31,7 +31,7 @@ const Post = ({ post }) => {
               </div>
               <div className="replies">
                <img height="20px" src={replies} />
-              <p className="d-inline">{post.replies.split(" ").length}</p>
+              <p className="ms-1 d-inline">{post.replies.split(" ").length}</p>
             </div>
          
               <div className="row partners-images">
