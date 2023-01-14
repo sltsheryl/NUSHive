@@ -1,18 +1,19 @@
+import Card from 'react-bootstrap/Card';
 const Post = ({ post }) => {
-  const cardStyle = {
-    border: "1px solid black",
-    margin: "10px 50px 10px 50px",
-  };
-  const titleStyle = {
-    textalign: "left",
-  };
+    const titleStyle = {
+        fontSize: "24px",
+        align: "left",
+        textDecoration:"none"    }
 
   return (
-    <div style={cardStyle}>
-      <h2 style={titleStyle}>{post.title}</h2>
+    <div>
+          <Card className="mx-4 " body>
+              <a href="/" style={titleStyle}>{post.title}</a>
       {/* <p>{post.date}</p> */}
       {/* number of replies */}
       <p>Replies: {post.replies.split(" ").length}</p>
+          </Card>
+      
     </div>
   );
 };
