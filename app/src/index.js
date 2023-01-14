@@ -6,7 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createRouter } from "@remix-run/router";
 import Forum from "./pages/Forum";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Register from "./pages/Register"
+import PostDetail from "./pages/PostDetail"
 
 const router = createBrowserRouter([
   {
@@ -18,14 +19,18 @@ const router = createBrowserRouter([
     element: <Forum />,
   },
   {
-    path: "/login",
-    element: <Login />,
-  },
+    path: '/login',
+    element: <Login />
+  }, 
   {
-    path: "/register",
-    element: <Register />,
-  },
-]);
+    path: '/register',
+    element: <Register />
+  }, 
+  {
+    path: '/post/:id',
+    element: <PostDetail/>
+  }, 
+])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
