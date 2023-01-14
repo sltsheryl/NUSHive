@@ -72,7 +72,7 @@ class Login extends Component {
                 <Form.Label>Password</Form.Label>
                 <Form.Control name="password" type="password" placeholder="Password" onChange={this.handleChange} required/>
                 </Form.Group>
-                {error_msg}
+                { error_msg }
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check name="remember" type="checkbox" label="Remember me" onChange={this.handleChange}/>
                 </Form.Group>
