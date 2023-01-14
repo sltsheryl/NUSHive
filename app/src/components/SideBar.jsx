@@ -34,7 +34,7 @@ function SideBar() {
           <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="Search a topic"
               className="me-2"
               aria-label="Search"
             />
