@@ -1,8 +1,9 @@
 import NaviBar from '../pages/NaviBar'
 import Forum from '../pages/Forum'
 import Button from 'react-bootstrap/Button';
-
+import MainTabs from '../pages/MainTabs'
 import '../App.css'
+import Container from 'react-bootstrap/esm/Container';
 
 const Home = () => {
         
@@ -15,6 +16,7 @@ const Home = () => {
             <div>
             <NaviBar />
             <h1>Welcome back, bear</h1>
+            <Container/>
             <ul>
                 <li>
                     <p>Forum</p>
