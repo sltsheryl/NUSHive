@@ -10,11 +10,11 @@ class Register extends Component {
         super(props);
         this.state = { email: "", username: "", password: "", register_success: false, wrong_register: ""}
         this.handleChange = this.handleChange.bind(this);
-        this.login = this.login.bind(this);
+        this.register = this.register.bind(this);
     }
 
     componentDidMount(){
-        document.title = "SGExams | Login";
+        document.title = "Register";
     }
 
     handleChange(event){

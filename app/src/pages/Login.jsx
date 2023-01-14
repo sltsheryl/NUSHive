@@ -14,7 +14,7 @@ class Login extends Component {
     }
 
     componentDidMount(){
-        document.title = "SGExams | Login";
+        document.title = "Login";
     }
 
     handleChange(event){
