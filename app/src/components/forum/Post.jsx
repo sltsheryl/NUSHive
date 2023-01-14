@@ -14,7 +14,7 @@ const Post = ({ post }) => {
     const tags = post.tags.split(" ")
     for (var i=0; i < tags.length; i++) {
         tagsDisplay.push(
-                <Button className="text-xs rounded mx-4 w-1" variant="secondary">{tags[i]}</Button>
+                <Button className="text-xs rounded mr-6 w-1" variant="secondary">{tags[i]}</Button>
         );
     }
 
