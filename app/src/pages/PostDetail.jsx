@@ -6,28 +6,22 @@ import { useState } from 'react';
 
 const PostDetail= () => {
   const params = useParams();
-  const [post, setPost] = useState({replies: [], title: "", id: params.id});
-
-  fetch('/post/' + post.id, {
-    method: 'GET',
-    headers:{
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(params)
-  }).then(res => {
-    try {
-        res.json().then(value => {
-            if (value.result == "success"){
-                setPost(value.post);
-            } else {
-                setPost({replies: [], title: "Post not found", id: 0});
-            }
-        })
-    } catch (err){
-        throw err;
-    }
-});
+  const [post, setPost] = useState({ replies: [], title: "", description: "", score: 0, username: "", date: null, id: params.id, response: false});
+  if (post.response == false) {
+    fetch('http://localhost:3000/forum/post/' + post.id).then(res => {
+      try {
+          res.json().then(value => {
+              if (value.result == "success"){
+                  setPost({replies: value.replies, title: value.title, description: value.description, score: value.score, username: value.username, date: value.date, id: params.id, response: true});
+              } else {
+                  setPost({replies: [], title: "Post not found", description: "", score: 0, username: "", date: null, id: params.id, response: true});
+              }
+          })
+      } catch (err){
+          throw err;
+      }
+    });
+  }
 
 const repliesToDisplay = [];
     const replies = post.replies

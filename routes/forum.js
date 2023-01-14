@@ -58,4 +58,38 @@ router.post("/", function (req, res, next) {
   }
 });
 
+router.get("/post/:id", function(req, res, next) {
+    db.all(
+      `SELECT title, description, tags, score, username, date
+        FROM Post
+        JOIN User ON user_id = user.id 
+        WHERE Post.id = (?)
+        ORDER BY score DESC`, [req.params.id], 
+      (err, post) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send();
+        } else if (post.length !== 1) {
+            res.status(200).json({ result: "success", message: "Invalid post id"});
+        } else {
+            const { title, description, tags, score, username, date } = post[0];
+            db.all(
+                `SELECT post_id, description, score, username, date
+                FROM Reply
+                JOIN User ON user_id = user.id 
+                WHERE Reply.id = (?)
+                ORDER BY score DESC`, [req.params.id], (err, replies) => {
+                    if (err) {
+                    console.log(err);
+                    res.status(500).send();
+                    } else {
+                        res.status(200).json({ result: "success", replies: replies, title: title, description: description, score: score, username: username, date: date});
+                    }
+                });
+        }
+    });
+
+
+})
+
 module.exports = router;
