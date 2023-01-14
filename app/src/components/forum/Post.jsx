@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import replies from "../../images/replies.png";
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
+
 
 const Post = ({ post }) => {
     const titleStyle = {
@@ -14,7 +14,7 @@ const Post = ({ post }) => {
     const tags = post.tags.split(" ")
     for (var i=0; i < tags.length; i++) {
         tagsDisplay.push(
-                <Button className="text-xs rounded mr-6 w-1" variant="secondary">{tags[i]}</Button>
+                <Button className="text-xs m-1 rounded" variant="outline-primary">{tags[i]}</Button>
         );
     }
 
@@ -35,7 +35,7 @@ const Post = ({ post }) => {
             </div>
          
               <div className="row partners-images">
-                  <ButtonGroup >{ tagsDisplay }</ButtonGroup>
+                  <div >{ tagsDisplay }</div>
                 </div>
            
              
