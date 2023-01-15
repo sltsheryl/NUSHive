@@ -3,6 +3,7 @@ import ForumBody from "../components/forum/ForumBody";
 import SideBar from "../components/SideBar";
 import user from "../images/user.png";
 import React, { Component } from "react";
+import logo from "../images/logo.png";
 
 class Forum extends Component {
   constructor(props) {
@@ -11,14 +12,15 @@ class Forum extends Component {
 
   render() {
     const postlist = posts;
-    const profileStyle = {
-      float: "right",
-      padding: "auto",
+    const profileStyle = {  
     };
+    const topBarStyle = {
+      backgroundColor: "#956df8",
+    }
     return (
       <div>
-        <div className="flex mx-5 my-4">
-          <h1 className="d-inline">Welcome to the Forum</h1>
+        <div className="flex " style={topBarStyle}>
+          <img src={logo} alt="logo" height="80px" />
           <img alt="avatar" style={profileStyle} height="50px" src={user}></img>
         </div>
         <SideBar />
