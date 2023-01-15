@@ -8,7 +8,7 @@ const PostDetail= () => {
   const params = useParams();
   const [post, setPost] = useState({ replies: [], title: "", description: "", score: 0, username: "", date: null, id: params.id, response: false});
   if (post.response == false) {
-    fetch('http://localhost:3000/forum/post/' + post.id).then(res => {
+    fetch('/forum/post/' + post.id).then(res => {
       try {
           res.json().then(value => {
               if (value.result == "success"){
