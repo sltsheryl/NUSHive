@@ -13,20 +13,20 @@ var consultRouter = require("./routes/consult");
 
 var app = express();
 
-app.use(cors());
+app.use(cors({origin: 'http://localhost:3001', credentials: true}));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser("hnr2023"));
 app.use(bodyParser.json());
-app.use(
-  session({
-    secret: "hnr2023",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
-  })
-);
+// app.use(
+//   session({
+//     secret: "hnr2023",
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: { secure: false },
+//   })
+// );
 
 app.use(express.static(path.join(__dirname, "public")));
 

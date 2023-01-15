@@ -5,7 +5,8 @@ db.serialize(() => {
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL,
     email TEXT NOT NULL, 
-    password_hash TEXT NOT NULL
+    password_hash TEXT NOT NULL,
+    tags TEXT
   )`);
 
   db.run(`CREATE TABLE Post (

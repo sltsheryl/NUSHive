@@ -1,0 +1,25 @@
+.profile-container {
+    width: 70%;
+    margin: 120px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-container > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.profile-container .profile-pic {
+    box-shadow: #a2a2a2 2px 2px 4px;
+    border-radius: 9999px;
+    width: 150px
+}
+
+.profile-container .profile-header {
+    font-weight: bold;
+    font-size: 1.5rem;
+}

@@ -5,7 +5,7 @@ var { db } = require("../database/database");
 const bcrypt = require("bcrypt");
 const saltRounds = 12;
 
-router.post("/login", function (req, res, next) {
+router.post("/login", function (req, res) {
   const { email, password, remember } = req.body;
   db.all(
     "SELECT id, username, password_hash FROM User WHERE Email = (?)",
@@ -28,13 +28,16 @@ router.post("/login", function (req, res, next) {
                 .status(200)
                 .json({ success: false, message: "Wrong password" });
             } else {
-              req.session.username = username;
-              req.session.user_id = id;
-              if (remember) {
-                req.session.cookie.expires = new Date(Date.now() + 2628000000);
-                req.session.cookie.maxAge = 2628000000;
+              let options = {
+                maxAge: 1000 * 60 * 99, // would expire after 15 minutes
               }
+              //req.session.user_id = 1;
+              // Set cookie
+              res.cookie('user_id', id, options) // options is optional
+              //res.set('Set-Cookie', `user_id=${id}`)
+
               res.status(200).json({ success: true, message: "Login success" });
+              //res.send('')
             }
           }
         );
@@ -43,7 +46,7 @@ router.post("/login", function (req, res, next) {
   );
 });
 
-router.post("/register", function (req, res, next) {
+router.post("/register", function (req, res) {
   const { email, username, password } = req.body;
   db.all(
     "SELECT id, username, password_hash FROM User WHERE Email = (?) OR Username = (?)",
@@ -80,6 +83,52 @@ router.post("/register", function (req, res, next) {
   );
 });
 
-router.get("/score", function (req, res, next) {});
+router.get("/profile", function (req, res) {
+  const user_id = req.cookies["user_id"]
+  console.log(user_id)
+  if (user_id) {
+    db.all(`SELECT username, email, tags 
+    FROM User WHERE User.id == (?)`, [user_id], function (err, user) {
+      if (err) {
+        console.log(err.stack);
+        res.status(500).send();
+      } else if (user.length != 1) {
+        res.status(200).send({ success: false, message: "Invalid user" });
+      } else {
+        const { username, email, tags } = user[0];
+        var count = 0;
+        db.all(`SELECT value FROM PostVote 
+        JOIN Post ON PostVote.post_id = Post.id
+        WHERE Post.user_id = (?)`, [user_id], function (err, postvote) {
+          if (err) {
+            console.log(err.stack);
+            res.status(500).send();
+          } else {
+            for (let i = 0; i < postvote; i++) {
+              count += postvote[i].value;
+            }
+            db.all(`SELECT value FROM ReplyVote 
+            JOIN Reply ON ReplyVote.reply_id = Reply.id
+            WHERE Reply.user_id = (?)`, [user_id], function (err, postvote) {
+              if (err) {
+                console.log(err.stack);
+                res.status(500).send();
+              } else {
+                for (let i = 0; i < postvote; i++) {
+                  count += postvote[i].value;
+                }
+                res.send({username: username, email: email, tags: tags, points: count, teaching_feedback: count/10});
+              }
+            })
+          }
+        })
+      }
+
+    });
+  } else {
+    res.send({success: false, message: "Login to go to profiles."})
+  }
+
+});
 
 module.exports = router;
