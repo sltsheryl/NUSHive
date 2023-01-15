@@ -27,18 +27,21 @@ class Login extends Component {
   }
 
   login(event) {
-    fetch("http://localhost:3000/users/login", {
+    fetch("/users/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      credentials: 'include',
       body: JSON.stringify(this.state),
     }).then((res) => {
       try {
         res.json().then((value) => {
+          console.log(value)
           if (value.success) {
             this.setState({ login_success: true });
+            
           } else {
             this.setState({ wrong_login: value.message });
           }

@@ -8,6 +8,7 @@ import Forum from "./pages/Forum";
 import Login from "./pages/Login";
 import Register from "./pages/Register"
 import PostDetail from "./pages/PostDetail"
+import Profile from "./pages/Profile"
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: '/post/:id',
     element: <PostDetail/>
+  }, 
+  {
+    path: '/profile',
+    element: <Profile/>
   }, 
 ])
 
