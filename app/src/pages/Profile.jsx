@@ -16,9 +16,7 @@ class Profile extends Component {
             try {
                 res.json().then(val => {
                     console.log(val);
-                    if (val.result === "success") {
-                        this.setState({ username: val.username, email: val.email, points: val.points, teaching_feedback: val.teaching_feedback, tags: val.tags });
-                    }
+                    this.setState({ username: val.username, email: val.email, points: val.points, teaching_feedback: val.teaching_feedback, tags: val.tags });
                 })
             } catch (err) {
                 throw err;
