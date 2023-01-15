@@ -27,11 +27,9 @@ class Profile extends Component {
         });
     }
 
-<<<<<<< HEAD
     renderTags = () => {
         let tagsDisplay = [];
-    // let tagList = this.state.tags.split(" ");
-        let tagList = ["chinese", "english"]
+    let tagList = this.state.tags.split(" ");
             for (let i = 0; i < tagList.length; i++) {
             tagsDisplay.push( <Button className="disabled text-xs me-1 rounded" variant="outline-primary">
         {tagList[i]}
@@ -43,8 +41,6 @@ class Profile extends Component {
 
 
 
-=======
->>>>>>> be3c9be7349266fa7afab69c26143563284adcd7
     render() {
         return (<>
             <div className="profile-container">
