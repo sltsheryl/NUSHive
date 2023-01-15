@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Oyes from "../images/Oyes.png";
 import "./profile.css";
+import Button from "react-bootstrap/Button";
 
 class Profile extends Component {
     constructor(props) {
@@ -10,6 +11,8 @@ class Profile extends Component {
         }
         document.title = "Profile";
     }
+
+    
 
     componentWillMount() {
         fetch('/users/profile').then(res => {
@@ -24,11 +27,31 @@ class Profile extends Component {
         });
     }
 
+    renderTags = () => {
+        let tagsDisplay = [];
+    // let tagList = this.state.tags.split(" ");
+        let tagList = ["chinese", "english"]
+            for (let i = 0; i < tagList.length; i++) {
+            tagsDisplay.push( <Button className="disabled text-xs me-1 rounded" variant="outline-primary">
+        {tagList[i]}
+      </Button>);
+        }
+            return tagsDisplay;
+};
+
+
+
 
     render() {
         return (<>
             <div className="profile-container">
                 <img src={Oyes} alt="Profile pic" className="profile-pic" />
+                <div>
+                     <div className="profile-header">
+                            Modules
+                        </div>
+                    {this.renderTags()}
+                    </div>
                 <div>
                 <div className="profile-layer">
                     <div>
