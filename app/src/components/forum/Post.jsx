@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import replies from "../../images/replies.png";
 import Button from "react-bootstrap/Button";
+import { Navigate, Link } from "react-router-dom";
 
 const Post = ({ post }) => {
   const titleStyle = {
@@ -20,7 +21,7 @@ const Post = ({ post }) => {
   }
 
   return (
-    <div>
+    <Link to= {`/post/${post.id}`} >
       <Card className="mx-4 " body>
         <a href=" " style={titleStyle}>
           {post.title}
@@ -39,7 +40,7 @@ const Post = ({ post }) => {
           <div>{tagsDisplay}</div>
         </div>
       </Card>
-    </div>
+    </Link>
   );
 };
 
