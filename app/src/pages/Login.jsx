@@ -65,7 +65,7 @@ class Login extends Component {
     }
     return (
       <div className="loginGroup">
-        <h1>Welcome to NusHive</h1>
+        <h1>Welcome to NUSHive</h1>
         <Form onSubmit={this.login}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -102,7 +102,7 @@ class Login extends Component {
           <Button variant="primary" type="submit">
             Login
           </Button>
-          or{" "}
+          <p className="d-inline"> or </p>
           <Link className="link" to="/register">
             Sign up now!
           </Link>

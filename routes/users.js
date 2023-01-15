@@ -56,12 +56,10 @@ router.post("/register", function (req, res) {
         console.log(err.stack);
         res.status(500).send();
       } else if (users.length != 0) {
-        res
-          .status(200)
-          .send({
-            success: false,
-            message: "User with email or username already exists",
-          });
+        res.status(200).send({
+          success: false,
+          message: "User with email or username already exists",
+        });
       } else {
         bcrypt.hash(password, saltRounds, function (err, hashedPassword) {
           if (err) {

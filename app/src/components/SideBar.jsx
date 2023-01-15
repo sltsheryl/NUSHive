@@ -10,7 +10,7 @@ const SideBar = () => {
   return (
     <Navbar className="mx-3" bg="white" expand="lg">
       <Container fluid>
-        <AddPost name={"Post Question"} />
+        <AddPost />
         <Navbar.Brand href="#">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

@@ -62,7 +62,7 @@ class Register extends Component {
     }
     return (
       <div className="registerGroup">
-        <h1>Welcome to NusHive</h1>
+        <h1>Welcome to NUSHive</h1>
         <Form onSubmit={this.register}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

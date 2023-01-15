@@ -30,12 +30,10 @@ router.post("/request", function (req, res, next) {
     insert_post.finalize();
     res.status(200).send({ success: true, message: "Post made" });
   } else {
-    res
-      .status(200)
-      .send({
-        success: false,
-        message: "Login to view make consultation request",
-      });
+    res.status(200).send({
+      success: false,
+      message: "Login to view make consultation request",
+    });
   }
 });
 
